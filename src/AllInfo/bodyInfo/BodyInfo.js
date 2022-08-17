@@ -1,5 +1,5 @@
 import React from "react";
-import BodyInfoS from "./BodyInfoS.css";
+import "./BodyInfoS.css";
 import WeatherDescr from "./WeatherDescr";
 import WeatherIcon from "./WeatherIcon";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import WeatherDescrS from "./WeatherDescrS.css";
+import "./WeatherDescrS.css";
 
 export default function WeatherDescr() {
   /*make render info from API */

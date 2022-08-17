@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderS from "./HeaderS.css";
+import "./HeaderS.css";
 
 export default function Header() {
   function showMenu(e) {
