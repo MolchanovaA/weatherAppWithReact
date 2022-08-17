@@ -35,6 +35,23 @@
   display: none;
 }
 
+.settings input[type="search"] {
+  background-color: var(--formsBGColorWithOpasity);
+  border-radius: 5px;
+  border: none;
+  box-shadow: var(--textShadow);
+  width: 50px;
+  transition: all 0.5s ease-in-out;
+}
+input[type="search"]:focus {
+  width: 110px;
+}
+.searchIcon {
+  position: relative;
+  left: -37px;
+  opacity: 0.5;
+}
+
 .smallMenu::before,
 .smallMenu::after {
   content: "";
@@ -89,27 +106,10 @@
     animation: 1s wrapperAnimation;
     animation-fill-mode: forwards;
   }
-  @keyframes wrapperAnimation {
-    from {
-      height: 50px;
-    }
-    to {
-      height: 110px;
-    }
-  }
 
   .formWrapper.hide {
     animation: 1s hideWrapper;
     animation-fill-mode: forwards;
-  }
-
-  @keyframes hideWrapper {
-    from {
-      height: 110px;
-    }
-    to {
-      height: 50px;
-    }
   }
 
   .settings {
@@ -124,18 +124,39 @@
     animation: 1s showMenuAnimation;
     animation-fill-mode: forwards;
   }
-
-  @keyframes showMenuAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  .settings input[type="search"] {
+    margin-top: 10px;
   }
 }
 @media (max-width: 770px) {
   .formWrapper {
     font-size: 25px;
+  }
+}
+
+@keyframes wrapperAnimation {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 160px;
+  }
+}
+
+@keyframes showMenuAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hideWrapper {
+  from {
+    height: 160px;
+  }
+  to {
+    height: 50px;
   }
 }

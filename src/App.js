@@ -1,5 +1,6 @@
 import "./App.css";
 import MainContainer from "./AllInfo/MainContainer";
+
 import day from "./AllInfo/pics/day.jpg";
 import morning from "./AllInfo/pics/morning.jpg";
 import evening from "./AllInfo/pics/evening.jpg";
