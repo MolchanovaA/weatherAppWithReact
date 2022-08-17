@@ -1,0 +1,141 @@
+.formWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 30px;
+  padding: 10px;
+  background-color: var(--formsBGColorWithOpasity);
+}
+
+.settings input[type="checkbox"] {
+  display: none;
+}
+
+.settingTool,
+.settings {
+  transition: all 0.5s ease-in-out;
+}
+.settingTool:hover {
+  text-shadow: var(--textShadow);
+  cursor: pointer;
+}
+.settings input[type="checkbox"]:checked ~ span {
+  color: var(--choosenFullColor);
+}
+.smallMenu {
+  width: 30px;
+  height: 30px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+.smallMenu::before,
+.smallMenu::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-top: 4px solid transparent;
+  border-color: var(--mainFullColor);
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 25%;
+}
+.smallMenu::after {
+  top: 60%;
+}
+
+.showMenu.smallMenu::before,
+.showMenu.smallMenu::after {
+  content: "";
+  display: block;
+
+  width: 40px;
+  height: 40px;
+  border-top: 4px solid transparent;
+  border-color: var(--choosenFullColor);
+  transform: rotatez(45deg);
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  z-index: 4;
+}
+.showMenu.smallMenu::after {
+  transform: rotatez(315deg);
+  top: 21%;
+  right: -70%;
+}
+
+.showMenu.smallMenu:hover:after,
+.showMenu.smallMenu:hover:before,
+.smallMenu:hover::after,
+.smallMenu:hover::before {
+  box-shadow: var(--textShadow);
+}
+
+@media (max-width: 580px) {
+  .formWrapper {
+    min-height: 50px;
+  }
+  .formWrapper.anim {
+    min-height: 50px;
+    animation: 1s wrapperAnimation;
+    animation-fill-mode: forwards;
+  }
+  @keyframes wrapperAnimation {
+    from {
+      height: 50px;
+    }
+    to {
+      height: 110px;
+    }
+  }
+
+  .formWrapper.hide {
+    animation: 1s hideWrapper;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes hideWrapper {
+    from {
+      height: 110px;
+    }
+    to {
+      height: 50px;
+    }
+  }
+
+  .settings {
+    display: none;
+    opacity: 0;
+  }
+  .smallMenu {
+    display: block;
+  }
+  .smallMenu.showMenu ~ .settings {
+    display: block;
+    animation: 1s showMenuAnimation;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes showMenuAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+@media (max-width: 770px) {
+  .formWrapper {
+    font-size: 25px;
+  }
+}

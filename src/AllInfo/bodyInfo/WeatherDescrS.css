@@ -1,0 +1,15 @@
+.mainInfo {
+  box-shadow: var(--textShadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  padding: 10px;
+  margin-right: 50px;
+  border-radius: 5px;
+  background-color: var(--formsBGColorWithOpasity);
+
+  /* position: absolute;
+  top: 150px;
+  left: 50px; */
+}
