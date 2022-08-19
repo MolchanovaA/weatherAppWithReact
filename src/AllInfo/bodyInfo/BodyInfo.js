@@ -3,7 +3,7 @@ import "./BodyInfoS.css";
 import WeatherDescr from "./WeatherDescr";
 import WeatherIcon from "./WeatherIcon";
 
-export default function BodyInfo() {
+export default function BodyInfo({ dataInfo }) {
   const defaults1 = {
     icon: "CLEAR_DAY",
     color: "rgba(255, 255, 255, 0.87)",
@@ -12,7 +12,7 @@ export default function BodyInfo() {
   };
   return (
     <section className="bodyInfoContainer">
-      <WeatherDescr />
+      <WeatherDescr dataInfo={dataInfo} />
       <WeatherIcon defaults={defaults1} />
     </section>
   );

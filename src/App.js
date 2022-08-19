@@ -26,14 +26,21 @@ let backgroungImages = {
 };
 
 function App() {
-  function getCurrentDate() {
+  function getCurrentData() {
     let date = new Date();
-    let hours = date.getHours();
-    return hours;
+
+    let dataObject = {
+      hours: date.getHours(),
+      dayOfWeek: date.getDay(),
+      month: date.getMonth(),
+      year: date.getFullYear(),
+      day: date.getDate(),
+    };
+    return dataObject;
   }
 
   function setBackgroundImage() {
-    let currentHours = getCurrentDate();
+    let currentHours = getCurrentData().hours;
     let partOfDay;
     if (currentHours >= 22 || currentHours < 6) {
       partOfDay = "night";
@@ -48,7 +55,7 @@ function App() {
   }
   return (
     <div className="App" style={backgroungImages[setBackgroundImage()]}>
-      <MainContainer />
+      <MainContainer dataInfo={getCurrentData()} />
     </div>
   );
 }
