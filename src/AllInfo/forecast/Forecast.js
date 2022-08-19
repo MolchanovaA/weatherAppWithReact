@@ -11,8 +11,7 @@ export default function Forecast() {
   };
   return (
     <section className="forecastInfo ">
-      <DailyForecast defaults={defaults} />
-      <DailyForecast defaults={defaults} />
+      <DailyForecast className="test" defaults={defaults} />
       <DailyForecast defaults={defaults} />
       <DailyForecast defaults={defaults} />
       <DailyForecast defaults={defaults} />

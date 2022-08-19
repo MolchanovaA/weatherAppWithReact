@@ -4,3 +4,9 @@
   align-items: center;
   justify-content: space-around;
 }
+@media (max-width: 580px) {
+  .test {
+    background-color: rgb(236, 28, 28);
+    color: brown;
+  }
+}

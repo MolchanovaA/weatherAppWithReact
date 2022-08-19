@@ -6,3 +6,14 @@
   padding: 3px;
   border-radius: 5px;
 }
+.dailyForecastInfo:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+@media (max-width: 580px) {
+  .test {
+    background-color: rgb(174, 236, 28);
+    color: rgb(147, 165, 42);
+  }
+}
