@@ -1,11 +1,7 @@
 .dailyForecastInfo {
   text-align: center;
 }
-.dailyForecastInfo div {
-  box-shadow: var(--textShadow);
-  padding: 3px;
-  border-radius: 5px;
-}
+
 .dailyForecastInfo:hover {
   transform: scale(1.2);
   cursor: pointer;

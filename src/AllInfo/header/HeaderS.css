@@ -43,13 +43,21 @@
   width: 50px;
   transition: all 0.5s ease-in-out;
 }
+input[type="search"]:hover,
 input[type="search"]:focus {
   width: 110px;
 }
 .searchIcon {
   position: relative;
+
   left: -37px;
-  opacity: 0.5;
+  opacity: 0.9;
+  transition: all 0.5s ease-in-out;
+}
+.iconSearchLabel:hover > .searchIcon {
+  z-index: -2;
+  opacity: 0;
+  color: aqua;
 }
 
 .smallMenu::before,
