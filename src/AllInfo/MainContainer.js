@@ -8,15 +8,20 @@ import "./MainContainerS.css";
 
 export default function MainContainer({ dataInfo }) {
   let [name, setName] = useState("");
-  function getCityName(name) {
-    setName(name);
+  let [inputInfo, setInputInfo] = useState("");
+  function getCityName(nameA) {
+    setName(nameA);
   }
 
+  function toUpdFilter(param) {
+    setInputInfo(param);
+  }
+  // console.log(inputInfo);
   return (
     <div className="mainContainer">
-      <Header upd={getCityName} />
+      <Header updCity={getCityName} updFilter={toUpdFilter} />
 
-      <BodyInfo dataInfo={dataInfo} cityName={name} />
+      <BodyInfo dataInfo={dataInfo} cityName={name} inputInfo={inputInfo} />
 
       <Forecast dayInfo={dataInfo.dayOfWeek} />
       <Footer />

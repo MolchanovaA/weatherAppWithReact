@@ -1,30 +1,8 @@
 import React, { useState } from "react";
 import "./HeaderS.css";
 
-export default function Header({ upd }) {
+export default function Header({ updCity, updFilter }) {
   let [city, setCity] = useState("");
-  let [inputInfo, setInputInfo] = useState("");
-
-  //current Location //
-
-  // function showCurrentCityName(apiRespond) {
-  //   toCallApiByCityName(apiRespond.data.name);
-  // }
-
-  function toSearchCurrentCoords(respond) {
-    let long = respond.coords.longitude;
-    let lat = respond.coords.latitude;
-    console.log(long, lat);
-
-    let apiKey = `92af424606501aebb73d6eb016d67cdc`;
-    let urlAPIGetCity = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
-    console.log(urlAPIGetCity);
-    // axios.get(urlAPIGetCity).then(showCurrentCityName);
-  }
-
-  navigator.geolocation.getCurrentPosition(toSearchCurrentCoords);
-
-  ///
 
   function cathCityName(e) {
     setCity(e.target.value);
@@ -32,8 +10,7 @@ export default function Header({ upd }) {
 
   function sendCityName(e) {
     e.preventDefault();
-    // console.log(city);
-    upd(city);
+    updCity(city);
   }
 
   function sendChangedFields(e) {
@@ -41,11 +18,20 @@ export default function Header({ upd }) {
     if (e.target.name === "enter a city") return;
     let input = e.target.closest("label").querySelector("input");
 
-    !input.checked ? (input.checked = true) : (input.checked = false);
-
-    setInputInfo(input);
+    let inputInfoObj = {
+      name: input.name,
+      status: null,
+    };
+    if (!input.checked) {
+      input.checked = true;
+      inputInfoObj.status = true;
+    } else {
+      input.checked = false;
+      inputInfoObj.status = false;
+    }
+    updFilter(inputInfoObj);
   }
-  console.log(inputInfo.checked, inputInfo.name);
+
   function showMenu(e) {
     e.target.classList.toggle("showMenu");
     let wrapper = e.target.closest(".formWrapper");
