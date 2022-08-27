@@ -33,9 +33,7 @@ export default function Forecast() {
   }
   let weekArray = createWeekDayName(2);
 
-  weekArray.map(function (item) {
-    item.forecast = defaults;
-  });
+  weekArray.map((item) => (item.forecast = defaults));
 
   function dailyForecastCreator(item, i) {
     return <DailyForecast day={item.day} defaults={item.forecast} key={i} />;
