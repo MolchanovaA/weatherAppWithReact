@@ -6,7 +6,7 @@ export default function Footer() {
     <p className="text-center gitLink">
       <a
         rel="noopener noreferrer"
-        href="https://github.com/MolchanovaA/reactwearther"
+        href="https://github.com/MolchanovaA/weatherAppWithReact"
       >
         Coded by Alina
       </a>

@@ -18,7 +18,6 @@ export default function MainContainer({ updHours }) {
   let [month, setMonth] = useState("");
   let [date, setDate] = useState("");
   let [year, setYear] = useState("");
-  // let [hour, setHour] = useState("");
 
   /// GEOLOCATION
 
@@ -57,7 +56,6 @@ export default function MainContainer({ updHours }) {
     setDayOfWeek(week[data.getDay()]);
     setMonth(months[data.getMonth()]);
     setYear(data.getFullYear());
-    // setHour(data.getHours());
     updHours(data.getHours());
     setName(resp.data.city.name);
     setTemp(Math.round(resp.data.list[0].main.temp));
