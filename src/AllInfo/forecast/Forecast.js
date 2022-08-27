@@ -2,7 +2,7 @@ import React from "react";
 import DailyForecast from "./DailyForecast";
 import "./ForecastS.css";
 
-export default function Forecast({ dayInfo }) {
+export default function Forecast() {
   //DEFAULTS ICON!!
   const defaults = {
     icon: "CLEAR_DAY",
@@ -31,7 +31,7 @@ export default function Forecast({ dayInfo }) {
 
     return upCommingWeek;
   }
-  let weekArray = createWeekDayName(dayInfo);
+  let weekArray = createWeekDayName(2);
 
   weekArray.map(function (item) {
     item.forecast = defaults;

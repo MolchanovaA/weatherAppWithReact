@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./HeaderS.css";
 
 export default function Header({ updCity, updFilter }) {
@@ -17,18 +18,25 @@ export default function Header({ updCity, updFilter }) {
     e.preventDefault();
     if (e.target.name === "enter a city") return;
     let input = e.target.closest("label").querySelector("input");
-
-    let inputInfoObj = {
-      name: input.name,
-      status: null,
-    };
     if (!input.checked) {
       input.checked = true;
-      inputInfoObj.status = true;
     } else {
       input.checked = false;
-      inputInfoObj.status = false;
     }
+
+    let filterInputs = e.target
+      .closest("#weatherForm")
+      .querySelectorAll("input");
+
+    let inputInfoObj = Array.prototype.slice
+      .call(filterInputs)
+      .reduce((acc, item) => {
+        if (item.name !== "enter a city") {
+          acc.push({ name: item.name, status: item.checked });
+        }
+        return acc;
+      }, []);
+
     updFilter(inputInfoObj);
   }
 
@@ -52,15 +60,15 @@ export default function Header({ updCity, updFilter }) {
         className="settings row text-center "
         id="weatherForm"
       >
-        <label className="col-md-3 col-sm-3">
+        {/* <label className="col-md-3 col-sm-3">
           <input type="checkbox" name="Temperature" />
           <span className="settingTool">Temperature</span>
-        </label>
-        <label className="col-md-3 col-sm-3">
+        </label> */}
+        <label className="col-md-4 col-sm-4">
           <input type="checkbox" name="Humidity" />
           <span className="settingTool">Humidity</span>
         </label>
-        <label className="col-md-3 col-sm-3">
+        <label className="col-md-4 col-sm-4">
           <input type="checkbox" name="WindSpeed" />
           <span className="settingTool">Wind Speed</span>
         </label>

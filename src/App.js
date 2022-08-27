@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import MainContainer from "./AllInfo/MainContainer";
 
 import day from "./AllInfo/pics/day.jpg";
@@ -8,39 +9,26 @@ import night from "./AllInfo/pics/night.jpg";
 
 let backgroungImages = {
   morning: {
-    background: `black url(${morning}) no-repeat  center`, // backgroundColor: "black",
-    backgroundSize: "cover",
+    background: `url(${morning}) `,
   },
   day: {
-    background: `black url(${day}) no-repeat  center`, // backgroundColor: "black",
-    backgroundSize: "cover",
+    backgroundImage: `url(${day})`,
   },
   evening: {
-    background: `black url(${evening}) no-repeat  center`, // backgroundColor: "black",
-    backgroundSize: "cover",
+    background: ` url(${evening}) `,
   },
   night: {
-    background: `black url(${night}) no-repeat  center`, // backgroundColor: "black",
-    backgroundSize: "cover",
+    background: `url(${night}) `,
   },
 };
 
 function App() {
-  function getCurrentData() {
-    let date = new Date();
-
-    let dataObject = {
-      hours: date.getHours(),
-      dayOfWeek: date.getDay(),
-      month: date.getMonth(),
-      year: date.getFullYear(),
-      day: date.getDate(),
-    };
-    return dataObject;
+  let [h, setH] = useState("");
+  function updHours(hour) {
+    setH(hour);
   }
 
-  function setBackgroundImage() {
-    let currentHours = getCurrentData().hours;
+  function setBackgroundImage(currentHours) {
     let partOfDay;
     if (currentHours >= 22 || currentHours < 6) {
       partOfDay = "night";
@@ -51,11 +39,12 @@ function App() {
     } else if (currentHours >= 18 && currentHours < 22) {
       partOfDay = "evening";
     }
+
     return partOfDay;
   }
   return (
-    <div className="App" style={backgroungImages[setBackgroundImage()]}>
-      <MainContainer dataInfo={getCurrentData()} />
+    <div className="App" style={backgroungImages[setBackgroundImage(h)]}>
+      <MainContainer updHours={updHours} />
     </div>
   );
 }

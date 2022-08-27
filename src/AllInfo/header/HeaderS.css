@@ -36,6 +36,7 @@
 }
 
 .settings input[type="search"] {
+  padding-left: 5px;
   background-color: var(--formsBGColorWithOpasity);
   border-radius: 5px;
   border: none;
