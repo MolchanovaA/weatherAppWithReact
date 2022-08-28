@@ -2,8 +2,9 @@ import React from "react";
 import DailyForecast from "./DailyForecast";
 import "./ForecastS.css";
 
-export default function Forecast() {
+export default function Forecast({ forecast }) {
   //DEFAULTS ICON!!
+  console.log(forecast);
   const defaults = {
     icon: "CLEAR_DAY",
     color: "rgba(255, 255, 255, 0.87)",

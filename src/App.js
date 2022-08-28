@@ -8,18 +8,13 @@ import evening from "./AllInfo/pics/evening.jpg";
 import night from "./AllInfo/pics/night.jpg";
 
 let backgroungImages = {
-  morning: {
-    background: `url(${morning}) `,
-  },
-  day: {
-    backgroundImage: `url(${day})`,
-  },
-  evening: {
-    background: ` url(${evening}) `,
-  },
-  night: {
-    background: `url(${night}) `,
-  },
+  morning: `url(${morning})`,
+  day: `url(${day})`,
+  // backgroundSize: "cover",
+
+  evening: `url(${evening})`,
+
+  night: `url(${night})`,
 };
 
 function App() {
@@ -39,11 +34,17 @@ function App() {
     } else if (currentHours >= 18 && currentHours < 22) {
       partOfDay = "evening";
     }
-
     return partOfDay;
   }
   return (
-    <div className="App" style={backgroungImages[setBackgroundImage(h)]}>
+    <div
+      className="App"
+      style={{
+        backgroundImage: backgroungImages[setBackgroundImage(h)],
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <MainContainer updHours={updHours} />
     </div>
   );

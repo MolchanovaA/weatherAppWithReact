@@ -5,7 +5,6 @@ export default function WeatherDescr({
   weather,
   filter = { humidity: "", windSpeed: "" },
 }) {
-  console.log(weather);
   return (
     <section>
       <h2 className="text-center">{weather.cityName}</h2>

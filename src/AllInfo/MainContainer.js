@@ -18,6 +18,7 @@ export default function MainContainer({ updHours }) {
   let [month, setMonth] = useState("");
   let [date, setDate] = useState("");
   let [year, setYear] = useState("");
+  let [forecast, setForecast] = useState("");
 
   /// GEOLOCATION
 
@@ -35,22 +36,49 @@ export default function MainContainer({ updHours }) {
 
   // API CALL
 
+  function collectForecastInfo(info, city, days = 5) {
+    info.length = days;
+    let forecast = info.reduce((acc = [], item) => {
+      acc.push({
+        day: +item.dt * 1000,
+        city: city,
+        temp: Math.round(item.main.temp),
+        hum: item.main.humidity,
+        wind: item.wind.speed,
+        descr: item.weather[0].description,
+      });
+      return acc;
+    }, []);
+    // console.log(JSON.stringify(forecast));
+    setForecast(JSON.stringify(forecast));
+    // return forecast;
+  }
+
   function getWeatherInfoFromApi(resp) {
+    collectForecastInfo(resp.data.list, resp.data.city.name);
     let data = new Date(+resp.data.list[0].dt * 1000);
-    let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let week = [
+      "Sunday",
+      "Monday",
+      "Tueday",
+      "Wedday",
+      "Thuday",
+      "Friday",
+      "Satday",
+    ];
     let months = [
-      "Jan",
-      "Feb",
+      "January",
+      "February",
       "March",
-      "Apr",
+      "April",
       "May",
       "June",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ];
     setDate(data.getDate());
     setDayOfWeek(week[data.getDay()]);
@@ -105,7 +133,7 @@ export default function MainContainer({ updHours }) {
         weather={weatherObj}
         filterInfo={showFilteredWeather(inputInfo)}
       />
-      <Forecast />
+      <Forecast forecast={forecast} />
       <Footer />
     </div>
   );
