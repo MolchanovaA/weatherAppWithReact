@@ -10,10 +10,7 @@ import night from "./AllInfo/pics/night.jpg";
 let backgroungImages = {
   morning: `url(${morning})`,
   day: `url(${day})`,
-  // backgroundSize: "cover",
-
   evening: `url(${evening})`,
-
   night: `url(${night})`,
 };
 

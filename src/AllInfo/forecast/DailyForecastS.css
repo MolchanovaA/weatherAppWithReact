@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.dailyForecastInfo:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
 @media (max-width: 580px) {
   .test {
     background-color: rgb(174, 236, 28);

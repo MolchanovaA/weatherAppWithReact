@@ -1,7 +1,7 @@
 :root {
   --choosenFullColor: aqua;
   --mainFullColor: rgba(255, 255, 255, 0.87);
-  --formsBGColorWithOpasity: rgba(240, 255, 255, 0.231);
+  --formsBGColorWithOpasity: rgba(56, 58, 58, 0.231);
   --textShadow: -1px -1px 5px #ffffff;
 }
 body {
@@ -12,7 +12,6 @@ body {
   padding: 0 20px;
   margin-bottom: 5px;
   max-width: 800px;
-
   /* background-image: url(https://www.macmillandictionary.com/external/slideshow/full/46528_full.jpg); */
   border: 2px solid black;
   color: var(--mainFullColor);

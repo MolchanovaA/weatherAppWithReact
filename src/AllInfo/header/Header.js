@@ -60,10 +60,6 @@ export default function Header({ updCity, updFilter }) {
         className="settings row text-center "
         id="weatherForm"
       >
-        {/* <label className="col-md-3 col-sm-3">
-          <input type="checkbox" name="Temperature" />
-          <span className="settingTool">Temperature</span>
-        </label> */}
         <label className="col-md-4 col-sm-4">
           <input type="checkbox" name="Humidity" />
           <span className="settingTool">Humidity</span>
@@ -76,9 +72,6 @@ export default function Header({ updCity, updFilter }) {
           <input onChange={cathCityName} type="search" name="enter a city" />
           <i className="fa-solid fa-magnifying-glass searchIcon"></i>
         </label>
-        {/* <label className="col-md-3">
-          <input type="submit" value="save"></input>
-        </label> */}
       </form>
     </div>
   );

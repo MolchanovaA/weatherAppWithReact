@@ -36,11 +36,28 @@ export default function MainContainer({ updHours }) {
 
   // API CALL
 
-  function collectForecastInfo(info, city, days = 5) {
-    info.length = days;
-    let forecast = info.reduce((acc = [], item) => {
+  function collectForecastInfo(info, city) {
+    let fiveDaysForecast = info.reduce((acc, item, i) => {
+      if (i % 8) {
+      } else {
+        acc.push(item);
+      }
+      return acc;
+    }, []);
+    let week = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Satday",
+    ];
+
+    let forecast = fiveDaysForecast.reduce((acc = [], item) => {
+      let data = new Date(+item.dt * 1000);
       acc.push({
-        day: +item.dt * 1000,
+        day: week[data.getDay()],
         city: city,
         temp: Math.round(item.main.temp),
         hum: item.main.humidity,
@@ -51,7 +68,6 @@ export default function MainContainer({ updHours }) {
     }, []);
     // console.log(JSON.stringify(forecast));
     setForecast(JSON.stringify(forecast));
-    // return forecast;
   }
 
   function getWeatherInfoFromApi(resp) {
@@ -60,9 +76,9 @@ export default function MainContainer({ updHours }) {
     let week = [
       "Sunday",
       "Monday",
-      "Tueday",
-      "Wedday",
-      "Thuday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
       "Friday",
       "Satday",
     ];
