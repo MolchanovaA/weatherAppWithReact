@@ -26,7 +26,7 @@ export default function MainContainer({ updHours }) {
     function cordsDetecting(respond) {
       let long = respond.coords.longitude;
       let lat = respond.coords.latitude;
-      let apiKey = `92af424606501aebb73d6eb016d67cdc`;
+      let apiKey = `9558ea614f684a660f058544e42fda24`;
       let urlAPIGetCity = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
       axios.get(urlAPIGetCity).then(getWeatherInfoFromApi);
     }
